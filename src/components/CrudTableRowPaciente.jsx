@@ -1,7 +1,7 @@
 import React from "react";
 
-const CrudTableRowPaciente = ({el, setDataToEdit, deleteData, nombreEspecialista, horario, lugar}) => {
-  let { nombre, apellido, mail, numeroTelefono, id} = el;
+const CrudTableRowPaciente = ({el, setDataToEdit, deleteData}) => {
+  let { nombre, apellido, mail, numeroTelefono, id, odontologoAsignado, horarioAtencion, lugarAtencion} = el;
 
   return (
     <tr>
@@ -9,9 +9,9 @@ const CrudTableRowPaciente = ({el, setDataToEdit, deleteData, nombreEspecialista
       <td>{apellido}</td>
       <td>{mail}</td>
       <td>{numeroTelefono}</td>
-      <td>{nombreEspecialista}</td>
-      <td>{horario}</td>
-      <td>{lugar}</td>
+      <td>{odontologoAsignado}</td>
+      <td>{horarioAtencion}</td>
+      <td>{lugarAtencion}</td>
 
       <td>
         <button onClick={() => setDataToEdit(el)}>Editar datos</button>
