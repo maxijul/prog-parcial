@@ -1,11 +1,11 @@
 import React from "react";
 import CrudTableRowPaciente from "./CrudTableRowPaciente";
-
+import Table from 'react-bootstrap/Table'
 const CrudTablePacientes = ({ data, setDataToEdit, deleteData, nombreEspecialista, horario, lugar }) => {
   return (
     <div>
       <h3>Su turno</h3>
-      <table>
+      <Table striped bordered hover>
         <thead>
           <tr>
             <th>Nombre</th>
@@ -37,7 +37,7 @@ const CrudTablePacientes = ({ data, setDataToEdit, deleteData, nombreEspecialist
             </tr>
           )}
         </tbody>
-      </table>
+      </Table>
     </div>
   );
 };

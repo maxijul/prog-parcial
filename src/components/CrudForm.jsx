@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 
+
 const initailForm = {
   nombre: "",
   apellido: "",
@@ -10,7 +11,7 @@ const initailForm = {
   lugarAtencion: ""
 };
 
-const CrudForm = ({ createData, updateData, dataToEdit, setDataToEdit, nombreEspecialista, setNombreEspecialista, setHorario, horario, setLugar, lugar, agendarTurno }) => {
+const CrudForm = ({ createData, updateData, dataToEdit, setDataToEdit, nombreEspecialista, horario, lugar }) => {
   const [form, setForm] = useState(initailForm);
   /* const [nombre, setNombre] = useState("") */
 
@@ -30,13 +31,18 @@ const CrudForm = ({ createData, updateData, dataToEdit, setDataToEdit, nombreEsp
       [e.target.name]: e.target.value,
     });
     
+    console.log({...form,
+      [e.target.name]: e.target.value,})
+
   };
+
+  
 
   const handleSubmit = (e) => {
     e.preventDefault();
 
     if (!form.nombre || !form.apellido || !form.mail || !form.numeroTelefono ||!form.odontologoAsignado || !form.horarioAtencion || !form.lugarAtencion) {
-      alert("Datos incompletos");
+      alert("Datos incompletos. Verifique si lleno correctamente sus datos y si eligio un especialista");
       return;
     }
 
@@ -52,9 +58,6 @@ const CrudForm = ({ createData, updateData, dataToEdit, setDataToEdit, nombreEsp
 
   const handleReset = (e) => {
     setForm(initailForm);
-    setNombreEspecialista("")
-    setHorario("")
-    setLugar("")
     setDataToEdit(null);
   };
 
@@ -91,7 +94,7 @@ const CrudForm = ({ createData, updateData, dataToEdit, setDataToEdit, nombreEsp
           value={form.numeroTelefono}
         />
         <input
-          type="text"
+          type="hidden"
           name="odontologoAsignado"
           placeholder="Nombre del especialista"
           value={form.odontologoAsignado = nombreEspecialista}
@@ -99,7 +102,7 @@ const CrudForm = ({ createData, updateData, dataToEdit, setDataToEdit, nombreEsp
           
         />
         <input
-          type="text"
+          type="hidden"
           name="horarioAtencion"
           placeholder="Horario del turno"
           onChange={handleChange}
@@ -107,7 +110,7 @@ const CrudForm = ({ createData, updateData, dataToEdit, setDataToEdit, nombreEsp
           
         />
         <input
-          type="text"
+          type="hidden"
           name="lugarAtencion"
           placeholder="Lugar de atencion"
           onChange={handleChange}

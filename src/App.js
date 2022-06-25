@@ -2,7 +2,7 @@ import CrudApi from "./components/CrudApi";
 
 function App() {
   return (
-    <div>
+    <div className="container">
       <CrudApi/>
     </div>
   );

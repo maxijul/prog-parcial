@@ -95,7 +95,6 @@ const CrudApiPacientes = ({nombreEspecialista, setNombreEspecialista, horario, s
 
   return (
     <div>
-      <h2>Su turno</h2>
       <article className="grid-1-2">
         <CrudForm
           createData={createData}

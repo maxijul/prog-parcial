@@ -34,14 +34,24 @@
   "turnos": [],
   "pacientes": [
     {
+      "nombre": "b",
+      "apellido": "b",
+      "mail": "b",
+      "numeroTelefono": "b",
+      "odontologoAsignado": "Dr.Roberto Maldonado",
+      "horarioAtencion": "lunes y miercóles de 09:00hs a 12:00 hs",
+      "lugarAtencion": "Hospital Padilla",
+      "id": 1656191995418
+    },
+    {
       "nombre": "a",
       "apellido": "a",
       "mail": "a",
       "numeroTelefono": "a",
-      "odontologoAsignado": "Dr.Roberto Maldonado",
-      "horarioAtencion": "lunes y miercóles de 09:00hs a 12:00 hs",
-      "lugarAtencion": "Hospital Padilla",
-      "id": 1656075643363
+      "odontologoAsignado": "Dra.Noelia Contreras",
+      "horarioAtencion": "martes y miércoles de 12:00hs a 15:00 hs",
+      "lugarAtencion": "Coa - Centro Odontologico de Avanzada",
+      "id": 1656192234363
     }
   ]
 }

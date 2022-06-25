@@ -1,11 +1,12 @@
 import React from "react";
 import CrudTableRow from "./CrudTableRow";
+import Table from 'react-bootstrap/Table'
 
 const CrudTable = ({ data, agendarTurno }) => {
   return (
     <div>
       <h3>Odontólogos Disponibles</h3>
-      <table>
+      <Table striped bordered hover>
         <thead>
           <tr>
             <th>Nombre del especialista</th>
@@ -29,7 +30,7 @@ const CrudTable = ({ data, agendarTurno }) => {
             </tr>
           )}
         </tbody>
-      </table>
+      </Table>
     </div>
   );
 };
