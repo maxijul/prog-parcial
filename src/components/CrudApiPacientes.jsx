@@ -5,13 +5,21 @@ import CrudTablePacientes from "./CrudTablePacientes";
 import { Loader } from "./Loader";
 import { Message } from "./Message";
 
-const CrudApiPacientes = ({nombreEspecialista, setNombreEspecialista, horario, setHorario, lugar, setLugar, agendarTurno}) => {
+const CrudApiPacientes = ({
+  nombreEspecialista,
+  setNombreEspecialista,
+  horario,
+  setHorario,
+  lugar,
+  setLugar,
+  agendarTurno,
+}) => {
   const [db, setDb] = useState(null);
   const [dataToEdit, setDataToEdit] = useState(null);
   const [error, setError] = useState(null);
   const [loading, setLoading] = useState(false);
   let api = helpHttp();
-  let url = "http://localhost:5000/pacientes";
+  let url = "http://localhost:3003/api/pacientes";
 
   useEffect(() => {
     setLoading(true);
@@ -48,46 +56,72 @@ const CrudApiPacientes = ({nombreEspecialista, setNombreEspecialista, horario, s
         setError(res);
       }
     });
-  };
 
+  };
 
 
   const updateData = (data) => {
     let endpoint = `${url}/${data.id}`;
 
-    let options = {
+/*     let options = {
       body: data,
       headers: { "content-type": "application/json" },
-    };
+    }; */
 
-    api.put(endpoint, options).then((res) => {
+   /*  api.put(endpoint, options).then((res) => {
       if (!res.err) {
         let newData = db.map((el) => (el.id === data.id ? data : el));
         setDb(newData);
       } else {
         setError(res);
       }
-    });
+    }); */
+
+    fetch(endpoint, {
+      method: "PUT",
+      headers: { "Content-Type": "application/json"}
+    })
+    .then(response => {
+      if (!response.err) {
+        let newData = db.map((el) => (el.id === data.id ? data : el));
+        setDb(newData);
+      } else {
+        setError(response);
+      }
+    })
   };
 
   const deleteData = (id) => {
-    let isDelete = window.confirm(
-      `¿Estás seguro de cancelar el turno?`
-    );
+    let isDelete = window.confirm(`¿Estás seguro de cancelar el turno?`);
 
     if (isDelete) {
       let endpoint = `${url}/${id}`;
-      let options = {
+      /* let options = {
         headers: { "content-type": "application/json" },
-      };
-      api.del(endpoint, options).then((res) => {
+      }; */
+      
+      console.log(id)
+
+      fetch(endpoint , {
+        method: "DELETE",
+      })
+      .then(res => {
+        if(!res.err){
+          let newData = db.filter(el => el.id !== id)
+          setDb(newData)
+        } else {
+          setError(res)
+        }
+      })
+
+      /* api.del(endpoint, options).then((res) => {
         if (!res.err) {
           let newData = db.filter((el) => el.id !== id);
           setDb(newData);
         } else {
           setError(res);
         }
-      });
+      }); */
     } else {
       return;
     }

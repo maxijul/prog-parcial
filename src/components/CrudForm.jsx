@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
 
-
 const initailForm = {
   nombre: "",
   apellido: "",
@@ -13,9 +12,6 @@ const initailForm = {
 
 const CrudForm = ({ createData, updateData, dataToEdit, setDataToEdit, nombreEspecialista, horario, lugar }) => {
   const [form, setForm] = useState(initailForm);
-  /* const [nombre, setNombre] = useState("") */
-
-
 
   useEffect(() => {
     if (dataToEdit) {
@@ -31,12 +27,10 @@ const CrudForm = ({ createData, updateData, dataToEdit, setDataToEdit, nombreEsp
       [e.target.name]: e.target.value,
     });
     
-    console.log({...form,
-      [e.target.name]: e.target.value,})
-
+    
+    console.log({...form})
+    console.log({[e.target.name]: e.target.value})
   };
-
-  
 
   const handleSubmit = (e) => {
     e.preventDefault();

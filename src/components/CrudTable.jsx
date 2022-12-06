@@ -6,7 +6,7 @@ const CrudTable = ({ data, agendarTurno }) => {
   return (
     <div>
       <h3>Odontólogos Disponibles</h3>
-      <Table striped bordered hover>
+      <Table striped bordered hover size="sm">
         <thead>
           <tr>
             <th>Nombre del especialista</th>

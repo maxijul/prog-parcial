@@ -5,7 +5,7 @@ const CrudTablePacientes = ({ data, setDataToEdit, deleteData, nombreEspecialist
   return (
     <div>
       <h3>Su turno</h3>
-      <Table striped bordered hover>
+      <Table responsive bordered hover striped size="sm">
         <thead>
           <tr>
             <th>Nombre</th>

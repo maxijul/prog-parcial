@@ -13,7 +13,7 @@ const CrudApi = () => {
   const [lugar, setLugar] = useState("")
   const [loading, setLoading] = useState(false);
   let api = helpHttp();
-  let url = "http://localhost:5000/odontologos";
+  let url = "http://localhost:3003/api/odontologos";
 
   useEffect(() => {
     setLoading(true);
@@ -32,8 +32,6 @@ const CrudApi = () => {
       });
   }, [url]);
   
-  
-
   const agendarTurno = (data) => {
     let endpoint = `${url}/${data.id}`;
     console.log(data.id)
@@ -56,7 +54,7 @@ const CrudApi = () => {
 
   return (
     <div>
-      <h2>Turnos para Odontología</h2>
+      <h2>Bienvenido al administrador de turnos</h2>
       <article className="grid-1-2">
         <CrudApiPacientes nombreEspecialista={nombreEspecialista} setNombreEspecialista={setNombreEspecialista} horario={horario} setHorario={setHorario} lugar={lugar} setLugar={setLugar} agendarTurno={agendarTurno}/>
         {loading && <Loader />}
